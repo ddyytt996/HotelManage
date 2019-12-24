@@ -16,7 +16,7 @@ import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.sql.SQLException;
 
-@WebServlet("/customerlogin.ctl")
+@WebServlet("/customerLogin.ctl")
 public class LoginController extends HttpServlet {
     //POST, 登录
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -34,7 +34,7 @@ public class LoginController extends HttpServlet {
                 HttpSession session=request.getSession();
                 //设置会话的失效时间
                 session.setMaxInactiveInterval(10*60);
-                session.setAttribute("currentCustomer",loggedCustomer);
+                session.setAttribute("currentUser",loggedCustomer);
                 //获取客户的customer对象向前端输出
                 String customer_json = JSON.toJSONString(loggedCustomer);
                 response.getWriter().println(customer_json);
