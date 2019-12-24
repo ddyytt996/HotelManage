@@ -1,3 +1,8 @@
+package util;
+
+import domain.manageUser.Menu;
+import domain.manageUser.Role;
+
 import java.util.Collection;
 import java.util.HashSet;
 
@@ -5,7 +10,8 @@ public class Util {
     public static Collection createRoles(HashSet allFalseRoles, HashSet rightRoles){
         HashSet<Integer> check = new HashSet<Integer>();
         for(Object object:rightRoles){
-            Role role = (Role)object;
+
+            Role role = (Role) object;
             check.add(role.getId());
         }
         for(Object object:allFalseRoles){
